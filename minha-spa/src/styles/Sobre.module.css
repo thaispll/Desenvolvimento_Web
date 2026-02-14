@@ -1,0 +1,74 @@
+.container {
+    max-width:  800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid #646cff;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.title {
+    color: #646cff;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.subtitle {
+    color: #665;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.content {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.card {
+    background-color: #f4f4f9;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3{
+    color: #213547;
+    margin-top: 0;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.list li::before{
+    /*insere um conteúdo antes do elemento especificado*/
+    content: '✓';
+    color: #646cff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
