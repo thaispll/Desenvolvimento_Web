@@ -1,5 +1,5 @@
 .container {
-    max-width:  800px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 40px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,7 +28,7 @@
 
 .content {
     background-color: #fff;
-    padding: 20px;
+    border-radius: 20px;
 }
 
 .card {
@@ -36,7 +36,7 @@
     border-radius: 12px;
     padding: 25px;
     margin-top: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .card h3{
@@ -48,7 +48,6 @@
     list-style: none;
     padding: 0;
 }
-
 .list li {
     padding: 10px 0;
     border-bottom: 1px solid #eee;
@@ -57,7 +56,6 @@
 }
 
 .list li::before{
-    /*insere um conteúdo antes do elemento especificado*/
     content: '✓';
     color: #646cff;
     font-weight: bold;

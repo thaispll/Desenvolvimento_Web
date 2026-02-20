@@ -2,14 +2,20 @@ import styles from '../styles/Home.module.css';
 export function Home(){
     return (
         <div className={styles.container}>
-            <div>
-                <h1>Bem-vindo à nossa Single Page Application</h1>
-                <p>Este é um ex. de renderização via componentes</p>
-            </div>
-
-            <div className={styles.content}>
-                <p>Se você está vendo isso, é pq funcionou!</p>
-            </div>
+            <header className={styles.hero}>
+                <h1 className={styles.title}>Bem-vindo à nossa Single Page Application</h1>
+                <p className={styles.subtitle}>Este é um ex. de renderização via componentes</p>
+            </header>
+            <section className={styles.features}>
+                <div className={styles.card}>
+                    <h3>Componentes</h3>
+                    <p>Dividindo a interface em partes reutilizáveis.</p>
+                </div>
+                <div className={styles.card}>
+                    <h3>CSS Modules</h3>
+                    <p>Estilos que não vazam pra outras páginas.</p>
+                </div>
+            </section>
         </div>
     );
 }

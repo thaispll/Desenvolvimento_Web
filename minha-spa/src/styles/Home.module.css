@@ -3,33 +3,60 @@
     margin: 0 auto;
     padding: 40px 20px;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
 }
 
 .hero {
+    text-align: center;
     margin-bottom: 50px;
+    border-bottom: 2px solid #646cff;
+    padding-bottom: 20px;
 }
 
 .title {
     font-size: 3rem;
     color: #213547;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .subtitle{
-    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 1.5em;
     color: #646cff;
 }
 
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 30px;
     margin-top: 40px;
 }
 
 .card {
-    padding:20px;
+    background-color: #f4f4f9;
+    border-radius: 12px;
+    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: transform 0.2s, border-color 0.2s;
-    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    border-color: #646cff;
+}
+
+.card h3{
+    color: #213547;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #555;
 }
