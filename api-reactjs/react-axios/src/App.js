@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import api from "./services/api";
 
 export default function App() {
-  return (
     const[user, setUser] = useState(null);
     
     //carrega dados da API
