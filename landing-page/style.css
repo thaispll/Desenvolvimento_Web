@@ -1,0 +1,75 @@
+:root {
+    --roxo-primario: hsl(257, 40%, 49%);
+    --magenta-primario: hsl(300, 69%, 71%);
+    --branco: #fff;
+    --fonte-body: 'Opens Sans', sans-serif;
+    --fonte-titulo: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* evita que os elementos ultrapassem o limite definido */
+}
+
+body{
+    background-color: var(--roxo-primario);
+    background-image: url('./assets/bg-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--branco);
+    font-family: var(--fonte-body);
+    min-height: 100vh;
+    padding: 40px 60px;
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 200px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-esquerdo,
+.container-direito {
+    flex: 1;
+}
+
+.mockup-img {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.btn-registro {
+    background-color: var(--branco);
+    color: var(--roxo-primario);
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    padding: 15px 60px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.btn-registro:hover {
+    background-color: var(--magenta-primario);
+    color: var(--branco);
+}
