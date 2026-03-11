@@ -1,45 +1,58 @@
 :root {
+    /* Cores do Guia */
     --roxo-primario: hsl(257, 40%, 49%);
     --magenta-primario: hsl(300, 69%, 71%);
-    --branco: #fff;
-    --fonte-body: 'Opens Sans', sans-serif;
+    --branco: #ffffff;
+    
+    /* Fontes */
+    --fonte-body: 'Open Sans', sans-serif;
     --fonte-titulo: 'Poppins', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* evita que os elementos ultrapassem o limite definido */
+    box-sizing: border-box;
 }
 
-body{
+body {
     background-color: var(--roxo-primario);
+    /* Imagem de fundo conforme o design */
     background-image: url('./assets/bg-desktop.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    
     color: var(--branco);
     font-family: var(--fonte-body);
     min-height: 100vh;
     padding: 40px 60px;
+    
+    display: flex;
+    flex-direction: column;
 }
 
+/* Header */
 header {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .logo {
     width: 200px;
 }
 
+/* Layout Container */
 .container {
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: center;
+    gap: 60px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto; /* Centraliza verticalmente no espaço disponível */
+    flex: 1;
 }
 
-.container-esquerdo,
+.container-esquerdo, 
 .container-direito {
     flex: 1;
 }
@@ -47,29 +60,114 @@ header {
 .mockup-img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
+/* Tipografia */
 h1 {
     font-family: var(--fonte-titulo);
     font-weight: 600;
-    margin-bottom: 25px;
-    line-height: 1.6;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
+p {
+    font-family: var(--fonte-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Botão conforme o Active State */
 .btn-registro {
     background-color: var(--branco);
     color: var(--roxo-primario);
     font-family: var(--fonte-titulo);
-    font-weight: 400;
-    padding: 15px 60px;
-    border-radius: 30px;
+    padding: 15px 70px;
+    border-radius: 40px;
     border: none;
+    font-size: 1.1rem;
     cursor: pointer;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-registro:hover {
     background-color: var(--magenta-primario);
     color: var(--branco);
+}
+
+/* Footer com Ícones Sociais */
+footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
+
+.rede-social {
+    display: flex;
+    gap: 15px;
+}
+
+.rede-social a {
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* Hover dos ícones sociais conforme active-states.jpg */
+.rede-social a:hover {
+    color: var(--magenta-primario);
+    border-color: var(--magenta-primario);
+}
+
+/* --- RESPONSIVIDADE (MOBILE 375px) --- */
+@media (max-width: 768px) {
+    body {
+        background-image: url('./assets/bg-mobile.svg');
+        background-size: contain; /* Ajuste para mobile */
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    header {
+        text-align: left; /* Logo continua à esquerda no mobile */
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .btn-registro {
+        padding: 12px 0;
+        width: 100%; /* No mobile o botão costuma ser mais largo */
+        max-width: 280px;
+    }
+
+    footer {
+        justify-content: center;
+        margin-top: 60px;
+    }
 }
