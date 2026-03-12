@@ -1,4 +1,5 @@
-// Seleção de elementos do DOM
+//SELECIONAR ELEMENTOS DO DOM
+
 const inputConta = document.getElementById('conta');
 const inputPessoas = document.getElementById('pessoas');
 const botoesGorjeta = document.querySelectorAll('.btn-gorjeta');
@@ -8,52 +9,55 @@ const displayTotal = document.getElementById('valor-total');
 const btnResetar = document.getElementById('btn-resetar');
 const msgErro = document.getElementById('msg-erro');
 
-// Variáveis de controle
+//variáveis de controle
 let valorConta = 0.0;
 let valorPessoas = 0;
 let porcentagemGorjeta = 0;
 
-/**
- * Realiza os cálculos de gorjeta e total por pessoa
- */
-function calcular() {
-    // Validação: Conta e Pessoas devem ser maiores que zero
-    if (valorConta > 0 && valorPessoas >= 1) {
+/* Calcular gorjeta e total por pessoa*/
+function calcular(){
+    //conta e pessoas devem ser maiores que zero
+    if (valorConta > 0 && valorPessoas >= 1){
         const totalGorjeta = valorConta * (porcentagemGorjeta / 100);
         const gorjetaPorPessoa = totalGorjeta / valorPessoas;
-        const totalPorPessoa = (valorConta + totalGorjeta) / valorPessoas;
+        const totalPorPessoa = (valorConta + totalGorjeta) /valorPessoas;
 
-        // Atualiza a interface com 2 casas decimais
+        //atualizar a tela com 2 casas decimais
         displayGorjeta.innerText = gorjetaPorPessoa.toFixed(2);
         displayTotal.innerText = totalPorPessoa.toFixed(2);
-        
-        // Habilita o botão de reset
-        btnResetar.disabled = false;
+
+        //Habilitar o botão de reset
+        btnResetar.disabled=false;
     } else {
-        // Reseta os valores se os inputs forem inválidos
-        displayGorjeta.innerText = "0.00";
-        displayTotal.innerText = "0.00";
+        //Resetar os valores se os inputs forem inválidos
+        displayGorjeta.innerText="0.00";
+        displayTotal.innerText="0.00";
     }
 }
 
-// Evento: Valor da Conta
+//Criar evento: Valor da Conta
 inputConta.addEventListener('input', () => {
-    valorConta = parseFloat(inputConta.value) || 0.0;
+    valorConta = parseFloat(inputConta.value) || 0.00;
 
-    // Validação: Não permite valores negativos na conta
-    if (valorConta < 0) {
-        inputConta.value = "";
+    //validação: não pode permitir valores negativos na conta
+    if (valorConta <0){
+        inputConta.value= "";
         valorConta = 0;
     }
     calcular();
 });
 
-// Evento: Número de Pessoas com validação de erro
+//Criar evento: Número de pessoas
 inputPessoas.addEventListener('input', () => {
     valorPessoas = parseInt(inputPessoas.value) || 0;
-    
-    // Mostra erro se for zero ou negativo
-    if (valorPessoas <= 0 && inputPessoas.value !== "") {
+
+    //mostrar erro se for zero ou negativo
+    if (valorPessoas < 0){
+        msgErro.textContent = "O número não pode ser negativo";
+        msgErro.style.display= 'block';
+        inputPessoas.classList.add('erro');
+    } else if (valorPessoas === 0){
+        msgErro.textContent = "O número não pode ser zero";
         msgErro.style.display = 'block';
         inputPessoas.classList.add('erro');
     } else {
@@ -63,55 +67,60 @@ inputPessoas.addEventListener('input', () => {
     }
 });
 
-// Evento: Seleção de botões de porcentagem fixa
+//Criar evento: Selecionar botões de porcentagem fixa
 botoesGorjeta.forEach(botao => {
-    botao.addEventListener('click', (e) => {
-        // Gerencia classe 'ativo'
+    botao.addEventListener('click',(e) => {
+        //gerenciar as classes ativo
         botoesGorjeta.forEach(btn => btn.classList.remove('ativo'));
         e.target.classList.add('ativo');
-        
-        // Limpa o campo Custom ao usar botões fixos
+
+        //limpar campo custom ao usar botões fixos
         inputCustomizado.value = "";
-        
-        porcentagemGorjeta = parseFloat(e.target.dataset.valor);
+
+        porcentagemGorjeta =parseFloat(e.target.dataset.valor);
         calcular();
     });
 });
 
-// Evento: Gorjeta Personalizada (Custom)
+//Criar evento: Gorjeta personalizada 
+
 inputCustomizado.addEventListener('input', () => {
-    // Remove destaque dos botões fixos
+    //Remover destaque dos botões fixos
     botoesGorjeta.forEach(btn => btn.classList.remove('ativo'));
-    
+
     porcentagemGorjeta = parseFloat(inputCustomizado.value) || 0;
 
-    // Validação: Não permite porcentagem negativa
-    if (porcentagemGorjeta < 0) {
-        inputCustomizado.value = "";
+    //validação: não pode permitir porcentagem negativa
+    if (porcentagemGorjeta <0){
+        inputCustomizado.value="";
         porcentagemGorjeta = 0;
     }
     calcular();
 });
 
-// Evento: Botão RESETAR
+//Criar evento: botão resetar
+
 btnResetar.addEventListener('click', () => {
-    // Reseta inputs
+    //Resetar inputs
     inputConta.value = "";
     inputPessoas.value = "";
     inputCustomizado.value = "";
-    
-    // Reseta displays
+
+    //Resetar displays
     displayGorjeta.innerText = "0.00";
     displayTotal.innerText = "0.00";
-    
-    // Reseta estados visuais
+
     botoesGorjeta.forEach(btn => btn.classList.remove('ativo'));
     inputPessoas.classList.remove('erro');
-    msgErro.style.display = 'none';
-    
-    // Desabilita o botão e limpa variáveis
+    msgErro.style.display='none';
+
+    //Desabilitar botão e limpar variáveis
     btnResetar.disabled = true;
     valorConta = 0.0;
     valorPessoas = 0;
     porcentagemGorjeta = 0;
-});
+})
+
+
+
+

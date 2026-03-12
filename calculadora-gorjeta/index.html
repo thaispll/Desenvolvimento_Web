@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splitter - Calculadora de Gorjetas</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <title>Calculadora de Gorjeta</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header>
-        <img src="./assets/logo.svg" alt="Splitter" class="logo-header">
+        <img src="./assets/logo.svg" alt="calculadora-gorjeta" class="logo-header">
     </header>
 
     <main class="container-geral">
@@ -23,10 +22,8 @@
                         <input type="number" id="conta" placeholder="0" step="0.01">
                     </div>
                 </div>
-
                 <div class="grupo-gorjeta">
-                    <label>Selecione a Gorjeta %</label>
-                    <div class="grade-botoes">
+                    <div class="grupo-botoes">
                         <button type="button" class="btn-gorjeta" data-valor="5">5%</button>
                         <button type="button" class="btn-gorjeta" data-valor="10">10%</button>
                         <button type="button" class="btn-gorjeta" data-valor="15">15%</button>
@@ -53,7 +50,7 @@
                     <div class="linha-resultado">
                         <div class="texto">
                             <strong>Gorjeta</strong>
-                            <span>/ pessoa</span>
+                            <span>/pessoa</span>
                         </div>
                         <div class="valor">$<span id="valor-gorjeta">0.00</span></div>
                     </div>
@@ -61,7 +58,7 @@
                     <div class="linha-resultado">
                         <div class="texto">
                             <strong>Total</strong>
-                            <span>/ pessoa</span>
+                            <span>/pessoa</span>
                         </div>
                         <div class="valor">$<span id="valor-total">0.00</span></div>
                     </div>
@@ -70,7 +67,6 @@
             </section>
         </div>
     </main>
-
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
